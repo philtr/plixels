@@ -1,0 +1,52 @@
+body {
+  font-family: "Times New Roman", serif;
+  font-size: 20px;
+  background: url("5028.gif");
+  image-rendering: pixelated;
+  display: grid;
+  gap: 1em;
+  grid-template-columns: 20ch auto;
+}
+
+header {
+  grid-column: 1 / span 2;
+  display: flex;
+  gap: 1em;
+
+  h1 {
+    align-self: flex-end;
+    margin: 0
+  }
+
+  h2 {
+    align-self: flex-end;
+    margin: 0;
+    font-weight: normal;
+    font-style: italic;
+  }
+}
+
+nav {
+  background-color: rgba(255, 255, 255, 0.5);
+  height: 100%;
+
+  li {
+    &[selected] {
+      /* light yellow highlight color */
+      background-color: #fe0;
+    }
+  }
+}
+
+main {
+  height: 100%;
+}
+
+footer {
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+}
+
+.\@2x { zoom: 50% }
