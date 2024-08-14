@@ -6,27 +6,31 @@ body {
   display: grid;
   gap: 1em;
   grid-template-columns: 20ch auto;
+  max-width: 120ch;
 }
 
-header {
+plx-headline {
   grid-column: 1 / span 2;
-  display: flex;
-  gap: 1em;
 
-  h1 {
-    align-self: flex-end;
-    margin: 0
-  }
+  header {
+    display: flex;
+    gap: 1em;
 
-  h2 {
-    align-self: flex-end;
-    margin: 0;
-    font-weight: normal;
-    font-style: italic;
+    h1 {
+      align-self: flex-end;
+      margin: 0
+    }
+
+    h2 {
+      align-self: flex-end;
+      margin: 0;
+      font-weight: normal;
+      font-style: italic;
+    }
   }
 }
 
-nav {
+plx-navigation {
   background-color: rgba(255, 255, 255, 0.5);
   height: 100%;
 
@@ -42,7 +46,7 @@ main {
   height: 100%;
 }
 
-footer {
+plx-colophon {
   a {
     color: #000;
     text-decoration: none;

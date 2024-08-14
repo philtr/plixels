@@ -4,31 +4,19 @@
     <title>Plixels</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
-    <script type="module">
-      import hotwiredTurbo from 'https://cdn.jsdelivr.net/npm/@hotwired/turbo@8.0.4/+esm';
-    </script>
+    <script type="module">import hotwiredTurbo from 'https://cdn.jsdelivr.net/npm/@hotwired/turbo@8.0.4/+esm'</script>
+    <script type="module" src="components.js"></script>
   </head>
   <body>
-    <header>
-      <h1>Plixels</h1>
-      <h2>Comin' atcha fresh since 2005!</h2>
-    </header>
-    <nav>
-      <ul>
-        <li><a href="/" data-turbo-frame="main" data-turbo-action="advance">Home</a></li>
-        <li><a href="/about.html" data-turbo-frame="main" data-turbo-action="advance">About</a></li>
-        <li><a href="/blog.html" data-turbo-frame="main" data-turbo-action="advance">Blog</a></li>
-      </ul>
-    </nav>
+    <plx-headline></plx-headline>
+    <plx-navigation></plx-navigation>
     <main>
       <turbo-frame id="main">
         <h1>Blog</h1>
         <p><i>Coming soon!</i></p>
       </turbo-frame>
     </main>
-    <footer>
-      <p>Copyright &copy; <a href="https://web.archive.org/web/20050412032749/http://plixels.net/">2005</a>-2024</p>
-    </footer>
+    <plx-colophon></plx-colophon>
   </body>
 </html>
 
