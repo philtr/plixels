@@ -1,12 +1,57 @@
-body {
-  font-family: "Times New Roman", serif;
-  font-size: 20px;
-  background: url("5028.gif");
+@font-face {
+    font-family: '04b_21__';
+    src: url('fonts/04B_21__.WOFF2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+  --lch-kashmir: 46.11% 26.17 249.62;
+  --lch-tulip-tree: 72.57% 64.01 75.79;
+  --lch-goblin: 55.32% 32.48 146.69;
+  --lch-tawny-port: 24.4% 32.21 348.12;
+  --lch-nevada: 45.73% 7.07 246.98;
+  --lch-shark 17.82% 7.69 251.37;
+
+  --color-link: lch(var(--lch-kashmir));
+  --color-text: lch(var(--lch-shark));
+
+  --serif: "Times New Roman", serif;
+  --serif-size: 20px;
+  --pixel: "04b_21__", sans-serif;
+  --pixel-size: 10px;
+ 
+  font-family: var(--serif);
   image-rendering: pixelated;
+}
+
+/* Utility classes */
+.\@2x { zoom: 50% }
+
+.pixelated {
+  image-rendering: pixelated;
+  font-size: 12px;
+  -webkit-font-smoothing: none;
+  -mos-osx-font-smoothing: grayscale;
+  font-smooth: never;
+}
+
+/* Layout */
+body {
+  color: var(--color-text);
+  font-family: var(--serif);
+  background: url("5028.gif");
   display: grid;
   gap: 1em;
   grid-template-columns: 20ch auto;
   max-width: 120ch;
+}
+
+a {
+  color: var(--color-link);
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 plx-headline {
@@ -14,24 +59,25 @@ plx-headline {
 
   header {
     display: flex;
+    align-items: center;
     gap: 1em;
 
     h1 {
-      align-self: flex-end;
       margin: 0
     }
 
     h2 {
-      align-self: flex-end;
+      color: var(--color-link);
+      font-family: var(--pixel);
+      font-size: var(--pixel-size);
       margin: 0;
+      text-transform: uppercase;
       font-weight: normal;
-      font-style: italic;
     }
   }
 }
 
 plx-navigation {
-  background-color: rgba(255, 255, 255, 0.5);
   height: 100%;
 
   li {
@@ -44,6 +90,8 @@ plx-navigation {
 
 main {
   height: 100%;
+  border-left: 1px solid lch(var(--lch-nevada));
+  padding-left: 1em;
 }
 
 plx-colophon {
@@ -52,5 +100,3 @@ plx-colophon {
     text-decoration: none;
   }
 }
-
-.\@2x { zoom: 50% }
