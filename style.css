@@ -1,8 +1,8 @@
 @font-face {
-    font-family: '04b_21__';
-    src: url('fonts/04B_21__.WOFF2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
+  font-family: '04b_21__';
+  src: url('fonts/04B_21__.WOFF2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 
 :root {
@@ -11,7 +11,7 @@
   --lch-goblin: 55.32% 32.48 146.69;
   --lch-tawny-port: 24.4% 32.21 348.12;
   --lch-nevada: 45.73% 7.07 246.98;
-  --lch-shark 17.82% 7.69 251.37;
+  --lch-shark: 17.82% 7.69 251.37;
 
   --color-link: lch(var(--lch-kashmir));
   --color-text: lch(var(--lch-shark));
@@ -20,14 +20,12 @@
   --serif-size: 20px;
   --pixel: "04b_21__", sans-serif;
   --pixel-size: 10px;
- 
+
   font-family: var(--serif);
   image-rendering: pixelated;
 }
 
 /* Utility classes */
-.\@2x { zoom: 50% }
-
 .pixelated {
   image-rendering: pixelated;
   font-size: 12px;
@@ -36,31 +34,55 @@
   font-smooth: never;
 }
 
-/* Layout */
-body {
-  color: var(--color-text);
-  font-family: var(--serif);
-  background: url("5028.gif");
-  display: grid;
-  gap: 1em;
-  grid-template-columns: 20ch auto;
-  max-width: 120ch;
+.banner {
+  max-width: 702px;
+  width: 100%;
 }
 
+/* Generic Styles */
 a {
   color: var(--color-link);
+
   &:hover {
     text-decoration: underline;
   }
 }
 
+/* Layout */
+body {
+  color: var(--color-text);
+  font-family: var(--serif);
+  background: url("5028.gif");
+}
+
+plx-layout {
+  display: grid;
+  padding: 2ch;
+  max-width: 120ch;
+  grid-template:
+    "headline" min-content
+    "navigation" min-content
+    "main" min-content
+    "colophon" min-content
+    / 1fr;
+
+  @media (min-width: 120ch) {
+    grid-template:
+      "headline headline" min-content
+      "navigation main" 1fr
+      "colophon  colophon" min-content
+      / min-content 1fr;
+    gap: 4ch;
+  }
+}
+
 plx-headline {
-  grid-column: 1 / span 2;
+  grid-area: headline;
 
   header {
     display: flex;
     align-items: center;
-    gap: 1em;
+    gap: 4ch;
 
     h1 {
       margin: 0
@@ -78,23 +100,39 @@ plx-headline {
 }
 
 plx-navigation {
+  grid-area: navigation;
   height: 100%;
+  border-right: 1px solid lch(var(--lch-nevada) / 0.25);
+  padding-right: 8ch;
 
-  li {
-    &[selected] {
-      /* light yellow highlight color */
-      background-color: #fe0;
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  @media(max-width: 150ch) {
+    border: 0;
+
+    li {
+      display: inline-block;
+      margin-right: 2ch;
+
+      &:last-child {
+        margin-right: 0
+      }
     }
   }
+
 }
 
 main {
+  grid-area: main;
   height: 100%;
-  border-left: 1px solid lch(var(--lch-nevada));
-  padding-left: 1em;
 }
 
 plx-colophon {
+  grid-area: colophon;
+
   a {
     color: #000;
     text-decoration: none;

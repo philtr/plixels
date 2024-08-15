@@ -3,14 +3,13 @@
   <head>
     <title>Plixels</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
     <script type="module">import hotwiredTurbo from 'https://cdn.jsdelivr.net/npm/@hotwired/turbo@8.0.4/+esm'</script>
     <script type="module" src="components.js"></script>
   </head>
   <body>
-    <plx-headline></plx-headline>
-    <plx-navigation></plx-navigation>
-    <main>
+    <plx-layout>
       <turbo-frame id="main">
         <h1>About Me</h1>
         <p>Hi, I'm Pip! I'm a web developer, and I love building cool stuff.</p>
@@ -30,7 +29,6 @@
         <p>At some point in the mid-2010s, I let the domain expire and nearly forgot about it. Well, <i>we're back,
           baby, and BETTER THAN EVER!</i> And, as of August 14, 2024, I also now own <code>plixels.com</code>!</p>
       </turbo-frame>
-    </main>
-    <plx-colophon></plx-colophon>
+    </plx-layout>
   </body>
 </html>

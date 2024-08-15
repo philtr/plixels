@@ -3,20 +3,18 @@
   <head>
     <title>Plixels</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
     <script type="module">import hotwiredTurbo from 'https://cdn.jsdelivr.net/npm/@hotwired/turbo@8.0.4/+esm'</script>
     <script type="module" src="components.js"></script>
   </head>
   <body>
-    <plx-headline></plx-headline>
-    <plx-navigation></plx-navigation>
-    <main>
+    <plx-layout>
       <turbo-frame id="main">
         <h1>Blog</h1>
         <p><i>Coming soon!</i></p>
       </turbo-frame>
-    </main>
-    <plx-colophon></plx-colophon>
+    </plx-layout>
   </body>
 </html>
 

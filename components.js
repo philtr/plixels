@@ -1,3 +1,18 @@
+class PlxLayout extends HTMLElement {
+  constructor() { super() }
+
+  connectedCallback() {
+    const body = this.innerHTML
+
+    this.innerHTML = `
+      <plx-headline></plx-headline>
+      <plx-navigation></plx-navigation>
+      <main>${body}</main>
+      <plx-colophon></plx-colophon>
+    `
+  }
+}
+
 class PlxHeadline extends HTMLElement {
   constructor() { super() }
 
@@ -5,7 +20,7 @@ class PlxHeadline extends HTMLElement {
     this.innerHTML = `
       <header>
         <h1><img src="plixels.gif" alt="plixels.net"></h1>
-        <h2>Comin' atcha fresh since 2005!</h2>
+        <h2 class="pixelated">Comin' atcha fresh since 2005!</h2>
       </header>
     `
   }
@@ -48,7 +63,7 @@ class PlxBannerAd extends HTMLElement {
     const banner = banners[Math.floor(Math.random() * banners.length)]
 
     this.innerHTML = `
-      <p><a href="/products.html" data-turbo-frame="main" data-turbo-action="advance"><img src="banners/${banner}" width="702" height="90"></a></p>
+      <p><a href="/products.html" data-turbo-frame="main" data-turbo-action="advance"><img class="banner" src="banners/${banner}"></a></p>
     `
 
     setTimeout(() => this.connectedCallback(), 30_000)
@@ -59,3 +74,4 @@ window.customElements.define('plx-headline', PlxHeadline);
 window.customElements.define('plx-navigation', PlxNavigation);
 window.customElements.define('plx-colophon', PlxColophon);
 window.customElements.define('plx-banner-ad', PlxBannerAd);
+window.customElements.define('plx-layout', PlxLayout);

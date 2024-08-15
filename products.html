@@ -3,19 +3,18 @@
   <head>
     <title>Plixels</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
     <script type="module">import hotwiredTurbo from 'https://cdn.jsdelivr.net/npm/@hotwired/turbo@8.0.4/+esm'</script>
     <script type="module" src="components.js"></script>
   </head>
   <body>
-    <plx-headline></plx-headline>
-    <plx-navigation></plx-navigation>
-    <main>
+    <plx-layout>
       <turbo-frame id="main">
         <h1>Products</h1>
         <p>These are all fake products and they are not for sale. <i>Get yours today!</i></p>
         <h2 id="cactus-quencher">Cactus Quencher&reg;</h2>
-        <p><img src="banners/cactus-quencher.gif" width="702" height="90"></p>
+        <p><img class="banner" src="banners/cactus-quencher.gif"></p>
         <p>Say goodbye to the stress of forgetting to water your plants with <b>Cactus Quencher&reg;!</b> This
           innovative self-watering cactus takes care of itself, ensuring it always stays vibrant and healthy. With a
           quirky, colorful pot that features a built-in water reservoir and an easy-to-read gauge, Cactus Quencher&reg;
@@ -23,7 +22,7 @@
           schedules or those without a green thumb, the Cactus Quencher is the foolproof way to enjoy a thriving cactus
           without the hassle. Just set it and forget it!</p>
         <h2 id="dream-whisper">Dream<i>Whisper</i>&trade; Pillow</h2>
-        <p><img src="banners/dream-whisper.gif" width="702" height="90"></p>
+        <p><img class="banner" src="banners/dream-whisper.gif"></p>
         <p>Introducing the <b>Dream<i>Whisper</i>&trade; Pillow</b>—your gateway to a serene night’s sleep like never before.
           Designed with a luxurious blend of comfort and innovation, this pillow doesn’t just cradle your head; it
           whispers gentle, soothing secrets as you drift off to sleep. The ethereal glow and subtle wisps of light
@@ -31,8 +30,7 @@
           relaxation, the Dream<i>Whisper</i>&trade; Pillow ensures that every night is a journey into tranquility. Experience
           the magic of restful sleep with Dream<i>Whisper</i>&trade;, where comfort meets imagination.</p>
       </turbo-frame>
-    </main>
-    <plx-colophon></plx-colophon>
+    </plx-layout>
   </body>
 </html>
 
