@@ -17,12 +17,12 @@
   --color-text: lch(var(--lch-shark));
 
   --serif: "Times New Roman", serif;
-  --serif-size: 20px;
+  --sans-serif: "Verdana", sans-serif;
   --pixel: "04b_21__", sans-serif;
-  --pixel-size: 10px;
+  --pixel-size: 8px;
 
-  font-family: var(--serif);
-  image-rendering: pixelated;
+  --font-family-base: var(--serif);
+  --font-size-base: 16px;
 }
 
 /* Utility classes */
@@ -40,6 +40,13 @@
 }
 
 /* Generic Styles */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--sans-serif);
+}
+
 a {
   color: var(--color-link);
 
@@ -50,9 +57,13 @@ a {
 
 /* Layout */
 body {
+  background: url("grid.gif") repeat;
+  background-size: 24px;
+
   color: var(--color-text);
-  font-family: var(--serif);
-  background: url("5028.gif");
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  image-rendering: pixelated;
 }
 
 plx-layout {
