@@ -19,7 +19,7 @@ class PlxHeadline extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
       <header>
-        <h1><img src="plixels.gif" alt="plixels.net"></h1>
+        <h1><a href="/"><img src="/img/plixels.gif" alt="plixels.net"></a></h1>
         <h2 class="pixelated">Comin' atcha fresh since 2005!</h2>
       </header>
     `
@@ -29,14 +29,24 @@ class PlxHeadline extends HTMLElement {
 class PlxNavigation extends HTMLElement {
   constructor() { super() }
 
+  menu() {
+    return [
+      { name: "Home", url: "/", },
+      { name: "About", url: "/about.html", },
+      { name: "Blog", url: "/blog.html", },
+      { name: "Products", url: "/products.html" },
+    ]
+  }
+
+  renderItem(item) {
+    return `<li><a href="${item.url}" data-turbo-frame="main" data-turbo-action="advance">${item.name}</a></li>`
+  }
+
   connectedCallback() {
     this.innerHTML = `
       <nav>
         <ul>
-          <li><a href="/" data-turbo-frame="main" data-turbo-action="advance">Home</a></li>
-          <li><a href="/about.html" data-turbo-frame="main" data-turbo-action="advance">About</a></li>
-          <li><a href="/blog.html" data-turbo-frame="main" data-turbo-action="advance">Blog</a></li>
-          <li><a href="/products.html" data-turbo-frame="main" data-turbo-action="advance">Products</a></li>
+          ${this.menu().map(item => this.renderItem(item)).join('')}
         </ul>
       </nav>
     `
@@ -52,7 +62,7 @@ class PlxColophon extends HTMLElement {
         <plx-banner-ad></plx-banner-ad>
         <p>Copyright &copy; <a href="https://web.archive.org/web/20050412032749/http://plixels.net/">2005</a>-2024</p>
       </footer >
-    `
+      `
   }
 }
 
@@ -64,7 +74,7 @@ class PlxBannerAd extends HTMLElement {
     const banner = banners[Math.floor(Math.random() * banners.length)]
 
     this.innerHTML = `
-      <p><a href="/products.html" data-turbo-frame="main" data-turbo-action="advance"><img class="banner" src="banners/${banner}"></a></p>
+      <p><a href="/products.html" data-turbo-frame="main" data-turbo-action="advance"><img class="banner" src="/img/banners/${banner}"></a></p>
     `
 
     setTimeout(() => this.connectedCallback(), 30_000)

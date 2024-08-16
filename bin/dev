@@ -1,13 +1,8 @@
-#!/usr/bin/env ruby
+#!/usr/bin/env sh
 
-require "bundler/inline"
+if ! gem list foreman -i --silent; then
+  echo "Installing foreman..."
+  gem install foreman
+fi
 
-gemfile do
-  source "https://rubygems.org"
-  gem "webrick"
-end
-
-server = WEBrick::HTTPServer.new(Port: 3456, DocumentRoot: File.expand_path("."))
-trap 'INT' do server.shutdown end
-server.start
-
+foreman start -f Procfile.dev
