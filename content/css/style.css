@@ -23,6 +23,8 @@
 
   --font-family-base: var(--serif);
   --font-size-base: 16px;
+
+  --base-gap: 4ch;
 }
 
 /* Utility classes */
@@ -50,14 +52,16 @@ h4 {
 a {
   color: var(--color-link);
 
-  &:hover {
-    text-decoration: underline;
+  @media(any-hover: hover) {
+    &:hover {
+      color: lch(var(--lch-tawny-port));
+    }
   }
 }
 
 /* Layout */
 body {
-  background: url("grid.gif") repeat;
+  background: url("/img/grid.gif") repeat;
   background-size: 24px;
 
   color: var(--color-text);
@@ -68,7 +72,7 @@ body {
 
 plx-layout {
   display: grid;
-  padding: 2ch;
+  padding: var(--base-gap);
   max-width: 120ch;
   grid-template:
     "headline" min-content
@@ -83,29 +87,34 @@ plx-layout {
       "navigation main" 1fr
       "colophon  colophon" min-content
       / min-content 1fr;
-    gap: 4ch;
+    gap: var(--base-gap);
   }
 }
 
 plx-headline {
   grid-area: headline;
 
-  header {
-    display: flex;
-    align-items: center;
-    gap: 4ch;
+  h1 {
+    margin: 0
+  }
 
-    h1 {
-      margin: 0
-    }
+  h2 {
+    color: var(--color-link);
+    font-family: var(--pixel);
+    font-size: var(--pixel-size);
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: normal;
+  }
 
-    h2 {
-      color: var(--color-link);
-      font-family: var(--pixel);
-      font-size: var(--pixel-size);
-      margin: 0;
-      text-transform: uppercase;
-      font-weight: normal;
+  @media (min-width: 60ch) {
+
+    /* var(--base-gap) * 15 */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--base-gap);
     }
   }
 }
@@ -113,27 +122,41 @@ plx-headline {
 plx-navigation {
   grid-area: navigation;
   height: 100%;
-  border-right: 1px solid lch(var(--lch-nevada) / 0.25);
-  padding-right: 8ch;
+
+  nav {
+    height: 100%;
+  }
 
   ul {
+    display: flex;
+    justify-content: space-evenly;
+    justify-items: center;
     list-style-type: none;
     padding: 0;
   }
 
-  @media(max-width: 150ch) {
-    border: 0;
+  li {
+    margin-right: var(--base-gap);
 
-    li {
-      display: inline-block;
-      margin-right: 2ch;
-
-      &:last-child {
-        margin-right: 0
-      }
+    &:last-child {
+      margin-right: 0
     }
   }
 
+  @media(min-width: 120ch) {
+    width: 16ch;
+    border-right: 1px solid lch(var(--lch-nevada) / 0.25);
+    padding-right: var(--base-gap);
+
+    ul {
+      display: inherit;
+      height: 100%;
+    }
+
+    li {
+      margin-right: 0;
+    }
+  }
 }
 
 main {

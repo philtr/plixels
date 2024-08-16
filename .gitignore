@@ -1,2 +1,5 @@
 .DS_Store
 *~lock~
+output
+tmp
+crash.log
